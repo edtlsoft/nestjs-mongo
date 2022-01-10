@@ -11,6 +11,7 @@ export class AppService {
     @Inject('MONGO') private database: Db,
     @Inject(config.KEY) private configService: ConfigType<typeof config>,
   ) {}
+  
   getHello(): string {
     const apiKey = this.configService.apiKey;
     const name = this.configService.database.name;
@@ -18,6 +19,6 @@ export class AppService {
   }
 
   async getTasks() {
-    return this.database.collection('tasks').find({});
+    return this.database.collection('tasks').find({}).toArray();
   }
 }
