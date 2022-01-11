@@ -31,16 +31,16 @@ export class CustomerController {
     return this.customersService.create(payload);
   }
 
-  @Put(':id')
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() payload: UpdateCustomerDto,
-  ) {
-    return this.customersService.update(id, payload);
-  }
+  // @Put(':id')
+  // update(
+  //   @Param('id', ParseIntPipe) id: number,
+  //   @Body() payload: UpdateCustomerDto,
+  // ) {
+  //   return this.customersService.update(id, payload);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id', ParseIntPipe) id: number) {
-    return this.customersService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id', ParseIntPipe) id: number) {
+  //   return this.customersService.remove(+id);
+  // }
 }
