@@ -1,3 +1,4 @@
+import { FilterProductDto } from './../dtos/products.dtos';
 import { MongoIdPipe } from './../../common/mongo-id.pipe';
 import {
   Controller,
@@ -27,12 +28,8 @@ export class ProductsController {
 
   @Get()
   @ApiOperation({ summary: 'List of products' })
-  getProducts(
-    @Query('limit') limit = 100,
-    @Query('offset') offset = 0,
-    @Query('brand') brand: string,
-  ) {
-    return this.productsService.findAll();
+  getProducts(@Query() params: FilterProductDto) {
+    return this.productsService.findAll(params);
   }
 
   @Get('filter')
